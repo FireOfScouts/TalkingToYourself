@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ExampleStreaming.unity
+- path: Assets/ExampleStreamingOld.unity
   isLoaded: 1
   isActive: 1

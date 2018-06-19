@@ -7,7 +7,7 @@ public class Singleton : MonoBehaviour {
 
 	public static Singleton singleton;
 
-	public ExampleStreamingExp STT;
+	public ExampleStreaming STT;
 	public AIMLTestChat BOT;
 	public ExampleTextToSpeech TTS;
 
@@ -28,9 +28,11 @@ public class Singleton : MonoBehaviour {
 		checkmark = GameObject.Find ("Check");
 		StartCoroutine (ShowCheck());
 
-		STT = GameObject.Find ("STT").GetComponent<ExampleStreamingExp>();
+		STT = GameObject.Find ("STT").GetComponent<ExampleStreaming>();
 		BOT = GameObject.Find ("BOT").GetComponent<AIMLTestChat> ();
 		TTS = GameObject.Find ("TTS").GetComponent<ExampleTextToSpeech> ();
+
+		InsertValues ();
 	}
 
 	void Update(){
@@ -60,7 +62,7 @@ public class Singleton : MonoBehaviour {
 			return;
 		StartCoroutine (ShowCheck());
 		string res = BOT.GetAnswer (text);
-		Debug.Log (res);
+		Debug.Log ("Input: " + text + "\nResponse: " + res);
 		TTS.Speak (res);
 	}
 
