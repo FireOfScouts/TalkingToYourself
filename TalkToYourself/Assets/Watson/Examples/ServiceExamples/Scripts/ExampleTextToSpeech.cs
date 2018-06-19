@@ -26,9 +26,9 @@ using IBM.Watson.DeveloperCloud.Connection;
 public class ExampleTextToSpeech : MonoBehaviour
 {
     #region PLEASE SET THESE VARIABLES IN THE INSPECTOR
-	private string _username = "fd414932-c9f1-4a0b-9073-69c613827570";
-	private string _password = "QmusFxFy4vm2";
-	private string _url = "https://stream.watsonplatform.net/text-to-speech/api";
+	public string _username = "fd414932-c9f1-4a0b-9073-69c613827570";
+	public string _password = "QmusFxFy4vm2";
+	public string _url = "https://stream.watsonplatform.net/text-to-speech/api";
     #endregion
 
     TextToSpeech _textToSpeech;
@@ -57,7 +57,7 @@ public class ExampleTextToSpeech : MonoBehaviour
 
 	bool isSpeaking = false;
 
-    void Start()
+    public void StartTTS()
     {
         LogSystem.InstallDefaultReactors();
 
@@ -67,7 +67,7 @@ public class ExampleTextToSpeech : MonoBehaviour
         _textToSpeech = new TextToSpeech(credentials);
 
 //        Runnable.Run(Examples());
-		_textToSpeech.Voice = VoiceType.de_DE_Birgit;
+		_textToSpeech.Voice = VoiceType.en_US_Michael;
 		
 //		Speak("Welcome back");
     }

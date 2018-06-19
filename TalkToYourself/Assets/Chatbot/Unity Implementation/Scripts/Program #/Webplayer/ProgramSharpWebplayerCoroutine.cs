@@ -424,57 +424,40 @@ public class ProgramSharpWebplayerCoroutine : MonoBehaviour {
 	/// </summary>
 	/// <returns>Returns URL friendly string.</returns>
 	/// <param name="url">URL.</param>
-	private string ConvertToUrlFriendly(string url) {
+	private string ConvertToUrlFriendly (string url)
+	{
 		string newstring = "";
 		if (url.Substring (0, 4) == "file" || url.Substring (0, 4) == "http" || url.Substring (0, 3) == "ftp") {
 			// Do nothing
-		}
-		else
+		} else
 			// No pre-definition. Set to local.
-			newstring="file://";
+			newstring = "file://";
 		// Loop through each character
-		for(int i = 0; i< url.Length;i++){
-			switch(url[i]) {
-				// This character are reserved to url:
-				// ! # $ % & ' ( ) * + , / : ; = ? @ [ ]
-				// So think twice, when escaping them.
+		for (int i = 0; i < url.Length; i++) {
+			switch (url [i]) {
+			// This character are reserved to url:
+			// ! # $ % & ' ( ) * + , / : ; = ? @ [ ]
+			// So think twice, when escaping them.
 			case ' ':
 				// Replace with %20
-				newstring+="%20";
+				newstring += "%20";
 				break;
 			case '#':
 				// # is also an URL operator, so when working with url's you might
 				// comment this out. But for this example
 				// replace # with %23
-				newstring+="%23";
+				newstring += "%23";
 				break;
 			case '\\':
 				// Replace \ with /
-				newstring+="/";
+				newstring += "/";
 				break;
 			default:
 				// Simple add char to new string
-				newstring+=url[i].ToString();
+				newstring += url [i].ToString ();
 				break;
 			}
 		}
 		return newstring;
-	}
-	/// <summary>
-	/// Raises the GU event.
-	/// </summary>
-	private void OnGUI() {
-		// Show loading window when loading files.
-		if(isloading==true)
-			loadingwindow = GUI.Window (0, loadingwindow, DoLoadingWindow, "Loading"); 
-	}
-
-	/// <summary>
-	/// Handles the loading window.
-	/// </summary>
-	/// <param name="windowID">Window I.</param>
-	private void DoLoadingWindow(int windowID) {
-		// Print loading label.
-		GUI.Label (new Rect (80,20,270,60), "Loading... please wait!");
 	}
 }

@@ -26,9 +26,9 @@ using UnityEngine.UI;
 
 public class ExampleStreamingExp : MonoBehaviour
 {
-	private string _username = "53375e54-1532-4b72-b8cf-035ff791f087";
-	private string _password = "K8SxoGvyJjHJ";
-	private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
+	public string _username = "53375e54-1532-4b72-b8cf-035ff791f087";
+	public string _password = "K8SxoGvyJjHJ";
+	public string _url = "https://stream.watsonplatform.net/speech-to-text/api";
 
     public Text ResultsField;
 
@@ -40,7 +40,7 @@ public class ExampleStreamingExp : MonoBehaviour
 
     private SpeechToText _speechToText;
 
-    void Start()
+    public void StartSTT()
     {
         LogSystem.InstallDefaultReactors();
 
